@@ -1,0 +1,150 @@
+.reviews {
+  background: $background-blue;
+}
+
+.reviews__wrapper {
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: "El-messiri", "Arial", sans-serif;
+    padding-top: 140px;
+    font-size: 42px;
+    color: $basic-white;
+    padding-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 168px;
+      left: -100px;
+      width: 28px;
+      height: 14px;
+      background: $basic-blue;
+      border-top-right-radius: 50px;
+      border-bottom-left-radius: 50px;
+      overflow: hidden;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 168px;
+      right: -100px;
+      width: 28px;
+      height: 14px;
+      background: $basic-blue;
+      border-top-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+    }
+  }
+}
+
+.reviews__list {
+  margin: 0;
+}
+
+// Swiper
+.swiper {
+  width: 1400px;
+  height: 390px;
+  margin: 0;
+  position: relative;
+}
+
+.swiper-wrapper {
+  margin: 0;
+}
+
+.swiper-slide {
+  max-width: 414px;
+  height: 276px;
+  background: rgba(0, 138, 191, 0.5);
+  position: relative;
+  transform: scale(0.9);
+  color: $basic-white;
+  opacity: 0.5;
+  padding: 20px;
+  user-select: none;
+  border-radius: 10px;
+
+  & h3 {
+    font-size: 18px;
+  }
+
+  & p {
+    font-size: 14px;
+  }
+}
+
+.swiper-slide.swiper-slide-active {
+  transform: scale(1);
+  transition: transform 0.2s;
+  opacity: 1;
+  background: rgba(0, 138, 191, 1);
+}
+
+
+@media (max-width: $desktop-width) {
+  .reviews__wrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .swiper {
+    width: 900px;
+    height: 400px;
+  }
+
+  .swiper-wrapper {
+    width: 900px;
+  }
+
+  .swiper-slide {
+    max-width: 247px;
+    height: 300px;
+
+    & p {
+      font-size: 12px;
+    }
+
+    & h3 {
+      margin-top: 0;
+    }
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .reviews__wrapper {
+    & h2 {
+      padding-bottom: 20px;
+      font-size: 26px;
+
+      &::before {
+        background: none;
+      }
+
+      &::after {
+        background: none;
+      }
+    }
+  }
+
+  .swiper {
+    width: 288px;
+  }
+
+  .swiper-wrapper {
+    width: 250px;
+  }
+
+  .swiper-slide {
+    max-width: 248px;
+  }
+}

@@ -1,0 +1,124 @@
+.promo {
+  background: $background-blue;
+  padding-bottom: 100px;
+}
+
+.promo__wrapper {
+  max-width: 1300px;
+  margin: auto;
+  height: 600px;
+  background-color: transparent;
+  background-image: url("../img/promo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & span {
+    font-family: "El-messiri", "Arial", sans-serif;
+    font-size: 24px;
+    color: $basic-white;
+    position: relative;
+    margin-top: 140px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: -100px;
+      width: 28px;
+      height: 14px;
+      background: $basic-white;
+      border-top-right-radius: 50px;
+      border-bottom-left-radius: 50px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      right: -100px;
+      width: 28px;
+      height: 14px;
+      background: $basic-white;
+      border-top-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+    }
+  }
+
+  & h1 {
+    font-family: "El-messiri", "Arial", sans-serif;
+    font-size: 64px;
+    color: $basic-white;
+    max-width: 500px;
+    text-align: center;
+    line-height: 86px;
+  }
+}
+
+@media (max-width: $desktop-width) {
+  .promo__wrapper {
+    width: 97%;
+    height: 550px;
+
+    & h1 {
+      font-size: 48px;
+      max-width: 400px;
+      line-height: 64px;
+    }
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .promo__wrapper {
+    height: 390px;
+
+    & h1 {
+      font-size: 40px;
+      line-height: 46px;
+    }
+
+    & span {
+      margin-top: 100px;
+
+      &::before {
+        left: -60px;
+      }
+
+      &::after {
+        right: -60px;
+      }
+    }
+  }
+}
+
+@media (max-width: $half-mobile-width) {
+  .promo {
+    padding-bottom: 50px;
+  }
+
+  .promo__wrapper {
+    & span {
+      font-size: 18px;
+
+      &::before {
+        width: 22px;
+        height: 10px;
+        left: -40px;
+      }
+
+      &::after {
+        width: 22px;
+        height: 10px;
+        right: -40px;
+      }
+    }
+
+    & h1 {
+      font-size: 32px;
+      max-width: 300px;
+    }
+  }
+}

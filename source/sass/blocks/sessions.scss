@@ -1,0 +1,229 @@
+.sessions {
+  background: $background-blue;
+}
+
+.sessions__wrapper {
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & h2 {
+    font-family: "El-messiri", "Arial", sans-serif;
+    color: $basic-white;
+    font-size: 42px;
+    margin: 0;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 60px;
+    width: 370px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50px;
+      left: -100px;
+      width: 28px;
+      height: 14px;
+      background: $basic-blue;
+      border-top-right-radius: 50px;
+      border-bottom-left-radius: 50px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50px;
+      right: -100px;
+      width: 28px;
+      height: 14px;
+      background: $basic-blue;
+      border-top-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+    }
+  }
+}
+
+.sessions__list {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-areas: "big-item item-1 item-2" "big-item item-3 item-4";
+  grid-gap: 20px;
+}
+
+.sessions__item {
+  width: 416px;
+  height: 258px;
+  border-radius: 10px;
+  background: url("../img/session-small.jpg");
+  background-repeat: no-repeat;
+  grid-area: item;
+  position: relative;
+  background-size: 100%;
+  transition: background-size 0.3s;
+
+  & a {
+    font-family: "El-messiri", "Arial", sans-serif;
+    font-size: 24px;
+    color: $basic-white;
+    z-index: 40;
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  & span {
+    padding-bottom: 30px;
+    padding-left: 30px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(1, 138, 190, 0.5);
+    border-radius: 10px;
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.4s, background 0.2s, opacity 0.7s, border-radius 0.4s;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    background: transparent;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: background 0.2s;
+  }
+
+  &:nth-child(1) {
+    grid-area: big-item;
+    width: 416px;
+    height: 540px;
+    background: url("../img/session-big.jpg");
+    background-size: 100%;
+    transition: background-size 0.3s;
+  }
+
+  &:nth-child(2) {
+    grid-area: item-1;
+  }
+
+  &:nth-child(3) {
+    grid-area: item-2;
+  }
+
+  &:nth-child(4) {
+    grid-area: item-3;
+  }
+
+  &:nth-child(5) {
+    grid-area: item-4;
+  }
+
+  &:hover {
+    background-size: 103%;
+    transition: background-size 0.5s;
+
+    &::before {
+      background: transparent;
+      transform: translateY(-20px);
+      opacity: 0;
+      border-radius: 10px 10px 0 0;
+      transition: transform 0.7s, background 0.2s 0.3s, opacity 0.6s, border-radius 0.2s;
+    }
+
+    &::after {
+      background: $basic-blue;
+    }
+  }
+}
+
+@media (max-width: $desktop-width) {
+  .sessions__wrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .sessions__list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .sessions__item {
+    width: auto;
+    background-size: cover;
+
+    & span {
+      padding-right: 16px;
+    }
+
+    &:nth-child(1) {
+      min-height: 100%;
+    }
+  }
+}
+
+@media (max-width: $half-desktop-width) {
+  .sessions__item {
+    &:nth-child(1) {
+      width: auto;
+      background-size: cover;
+    }
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .sessions__wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    & h2 {
+      padding-bottom: 20px;
+      font-size: 26px;
+      width: 220px;
+      overflow: hidden;
+
+      &::before {
+        background: none;
+      }
+
+      &::after {
+        background: none;
+      }
+    }
+  }
+
+  .sessions__list {
+    grid-gap: 6px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "big-item item-1" "big-item item-2" "item-3 item-4";
+  }
+
+  .sessions__item {
+    &:nth-child(1) {
+      height: 100%;
+    }
+
+    & span {
+      font-size: 20px;
+      padding-left: 10px;
+      padding-bottom: 10px;
+      line-height: 22px;
+    }
+  }
+}

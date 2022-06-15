@@ -1,0 +1,141 @@
+.addresses {
+  background: $background-blue;
+}
+
+.addresses__wrapper {
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas: "map con-1" "map con-2";
+  padding-bottom: 50px;
+}
+
+.addresses__map {
+  overflow: hidden;
+  grid-area: map;
+  border-radius: 10px;
+  max-width: 856px;
+}
+
+.addresses__container {
+  background: $basic-blue;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+
+  &:nth-child(2) {
+    grid-area: con-1;
+  }
+
+  &:nth-child(3) {
+    grid-area: con-2;
+  }
+
+  & h3 {
+    color: $basic-white;
+    font-family: "El-messiri", "Arial", sans-serif;
+    font-size: 24px;
+    margin-left: 40px;
+    margin-top: 40px;
+  }
+
+  & span {
+    padding-left: 40px;
+    color: $basic-white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    & svg {
+      padding-right: 20px;
+    }
+  }
+
+  & button {
+    display: block;
+    width: 200px;
+    font-family: inherit;
+    color: $basic-blue;
+    font-size: 13px;
+    border-radius: 3px;
+    background: $basic-white;
+    border: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-left: 40px;
+    margin-top: 13px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background 0.4s;
+
+    &:hover {
+      background: $basic-blue;
+      outline: 2px solid $basic-white;
+      color: $basic-white;
+    }
+
+    &:active {
+      opacity: 0.4;
+    }
+  }
+}
+
+@media (max-width: $desktop-width) {
+  .addresses__wrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .addresses__container {
+    width: 330px;
+
+    & h3 {
+      margin-left: 22px;
+    }
+
+    & span {
+      padding-left: 22px;
+    }
+
+    & button {
+      margin-left: 22px;
+    }
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .addresses__wrapper {
+    max-width: 1300px;
+    margin: auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: "map" "con-1" "con-2";
+    padding-bottom: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .addresses__map {
+    max-height: 400px;
+  }
+
+  .addresses__container {
+    justify-self: center;
+  }
+}
+
+
+@media (max-width: $half-mobile-width) {
+  .addresses__container {
+    width: 100%;
+
+    & h3 {
+      padding-right: 30px;
+      line-height: 28px;
+    }
+  }
+}
